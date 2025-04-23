@@ -5,7 +5,12 @@
 </head>
 <body>
     <h1>Unit Converter</h1>
-    {% if not result %}
+    <nav>
+        <a href="/?unit_type=length" {% if unit_type == 'length' %}style="font-weight: bold; color: blue;"{% endif %}>Length</a>
+        <a href="/?unit_type=weight" {% if unit_type == 'weight' %}style="font-weight: bold; color: blue;"{% endif %}>Weight</a>
+        <a href="/?unit_type=temperature" {% if unit_type == 'temperature' %}style="font-weight: bold; color: blue;"{% endif %}>Temperature</a>
+    </nav>
+    {% if not result and unit_type == "length" %}
     <form method="post">
         <input type="number" name="value" step="any" required>
         
@@ -29,6 +34,48 @@
             <option value="foot">Foot</option>
             <option value="yard">Yard</option>
             <option value="mile">Mile</option>
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% elif not result and unit_type == "weight"%}
+    <form method="post">
+        <input type="number" name="value" step="any" required>
+        
+        <select name="from_unit">
+            <option value="mg">Milligram</option>
+            <option value="g">Gram</option>
+            <option value="kg">Kilogram</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+        </select>
+
+        <select name="to_unit">
+            <option value="mg">Milligram</option>
+            <option value="g">Gram</option>
+            <option value="kg">Kilogram</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% elif not result and unit_type == "temperature"%}
+    <form method="post">
+        <input type="number" name="value" step="any" required>
+        
+        <select name="from_unit">
+            <option value="c">Celsius</option>
+            <option value="f">Fahrenheit</option>
+            <option value="k">Kelvin</option>
+        </select>
+
+        <select name="to_unit">
+            <option value="c">Celsius</option>
+            <option value="f">Fahrenheit</option>
+            <option value="k">Kelvin</option>
         </select>
 
         <button type="submit">Convert</button>
