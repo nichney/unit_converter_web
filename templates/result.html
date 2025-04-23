@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <form method="post">
+        <input type="number" name="value" step="any" required>
+        
+        <select name="from_unit">
+            <option value="m">Meter</option>
+            <option value="cm">Centimeter</option>
+            <option value="mm">Millimeter</option>
+            <option value="km">Kilometer</option>
+            <option value="inch">Inch</option>
+            <option value="foot">Foot</option>
+            <option value="yard">Yard</option>
+            <option value="mile">Mile</option>
+        </select>
+
+        <select name="to_unit">
+            <option value="m">Meter</option>
+            <option value="cm">Centimeter</option>
+            <option value="mm">Millimeter</option>
+            <option value="km">Kilometer</option>
+            <option value="inch">Inch</option>
+            <option value="foot">Foot</option>
+            <option value="yard">Yard</option>
+            <option value="mile">Mile</option>
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <h2>Result of your calculation: {{ result }}</h2>
+        <form action="/" method="get">
+            <button type="submit">Сбросить</button>
+        </form>
+    {% endif %}
+</body>
+</html>
