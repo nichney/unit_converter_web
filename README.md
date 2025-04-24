@@ -22,5 +22,5 @@ https://roadmap.sh/projects/unit-converter
    cd unit_converter_web
    pipenv shell
    pip install -r requirements.txt
-   uvicorn app:app --reload
+   uvicorn app:app --reload --bind 0.0.0.0 --port 8080
    ```
