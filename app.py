@@ -37,7 +37,7 @@ async def handle_convertion(request: Request, value: float = Form(), from_unit: 
         converted = convert(value, from_unit, to_unit)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    result = f"{value} {from_unit} = {converted} {to_unit}"
+    result = f"{value} {from_unit} = {round(converted, 3)} {to_unit}"
     return templates.TemplateResponse(
             name="result.html", request=request, context={"result": result}
             )
