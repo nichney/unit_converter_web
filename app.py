@@ -10,8 +10,8 @@ templates = Jinja2Templates(directory="templates")
 
 def convert(v: float, f: str, t: str) -> float:
     """Convert v of unit f to d of unit t, return d """
-    coef = {"mm": 0.001, "cm": 0.01, "m": 1, "km": 1000, "inch": 0.0254, "foot": 0.3048, "yard": 0.9144, "mile": 1609.34,
-            "mg": 0.001, "g": 1, "kg": 1000, "ounce": 28.3495, "pound": 453.592,
+    coef = {"mm": 0.001, "cm": 0.01, "m": 1, "km": 1000, "in": 0.0254, "ft": 0.3048, "yd": 0.9144, "mi": 1609.34,
+            "mg": 0.001, "g": 1, "kg": 1000, "oz": 28.3495, "lb": 453.592,
             "c": lambda c: c, "f": lambda f: (f-32) * 5/9, "k": lambda k: k - 273.15, 
             "cc": lambda c: c, "cf": lambda c: c * 9/5 + 32, "ck": lambda c: c + 273.15
     }
